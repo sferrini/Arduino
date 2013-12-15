@@ -1,4 +1,4 @@
-Progetti Arduino
+Arduino Project
 =======
 
-Quà posterò alcuni miei progetti con Arduino.
+Here I will post some of my projects with Arduino.
