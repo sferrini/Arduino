@@ -1,5 +1,7 @@
 #include <GSM.h>
+
 int led = 12;
+
 #define PINNUMBER ""
 
 GSM gsmAccess;
@@ -9,9 +11,12 @@ char senderNumber[20];
 
 void setup() 
 {
-  pinMode(led,OUTPUT);
   Serial.begin(9600);
-  while (!Serial) {
+    
+  pinMode(led,OUTPUT);
+  
+  while (!Serial)
+  {
     ;
   } 
 
@@ -47,19 +52,22 @@ void loop()
     Serial.println(senderNumber);
     
     // Any messages starting with # should be discarded
-    if(sms.peek()=='#'){
+    if(sms.peek()=='#')
+    {
       Serial.println("Discarded SMS");
       sms.flush();
     }
 
-    if(sms.peek()=='A'){
-      Serial.println("Accendi");
+    if(sms.peek()=='1')
+    {
+      Serial.println("ON");
       digitalWrite(led, HIGH);
       sms.flush();
     }
 
-    if(sms.peek()=='S'){
-      Serial.println("Spengi");
+    if(sms.peek()=='2')
+    {
+      Serial.println("OFF");
       digitalWrite(led, LOW);
       sms.flush();
     }
