@@ -2,8 +2,6 @@
 //Simone Ferrini
 //09-02-2014
 
-String command = "";
-
 void setup() {
   // initialize both serial ports:
   Serial.begin(9600);  //Serial 0
@@ -11,18 +9,14 @@ void setup() {
 }
 
 void loop() {
-  
   // read from port 1, send to port 0:
-  if (Serial1.available())
-  {
+  if (Serial1.available()) {
     int inByte = Serial1.read();
     Serial.write(inByte);
   }
   
-  //command = "";
   // read from port 0, send to port 1:
-  if (Serial.available())
-  {
+  if (Serial.available()) {
     int inByte = Serial.read();
     Serial1.write(inByte); 
   }
